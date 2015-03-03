@@ -133,7 +133,7 @@
             \begin{itemize}
                 \item Flask-RESTful + gunicorn.
                 \item Dwie klasy: Task i Subtask.
-                \item Relacja jeden-do-wielu (każdemu Task'owi odpowiada wiele Subtask'ów).
+                \item Relacja jeden-do-wielu (każdemu Taskowi odpowiada wiele Subtasków).
                 \item API pozwala dodawać, odczytywać i usuwać Taski i Subtaski.
             \end{itemize}
             \item Test: uruchomić kilku klientów wysyłających w pętli żądania i mierzyć wydajność.
@@ -174,11 +174,11 @@ class Subtask(object):
     \begin{frame}
         \frametitle{REST API}
         \begin{itemize}
-            \item \textbf{GET /tasks/\{task\_id\}/} - zwróć listę Subtask'ów powiązanych z Task'iem o danym id (JSON)
+            \item \textbf{GET /tasks/\{task\_id\}/} - zwróć listę Subtasków powiązanych z Taskiem o danym id (JSON)
             \item \textbf{PUT /tasks/\{task\_id\}/} - stwórz Task o zadanym id
-            \item \textbf{DELETE /tasks/\{task\_id\}/} - usuń Task i wszystkie jego Subtask'i
+            \item \textbf{DELETE /tasks/\{task\_id\}/} - usuń Task i wszystkie jego Subtaski
             \item \textbf{GET /subtasks/\{subtask\_id\}/} - zwróć Task, do którego przypisany jest dany Subtask
-            \item \textbf{PUT /subtasks/\{task\_id\}/\{subtask\_id\}} - stwórz Subtask o danym id i przypisz do Task'a o danym id
+            \item \textbf{PUT /subtasks/\{task\_id\}/\{subtask\_id\}} - stwórz Subtask o danym id i przypisz do Taska o danym id
         \end{itemize}
     \end{frame}
 
@@ -239,7 +239,7 @@ class Subtask(object):
                 \item Pamięć jest alokowana w blokach i będzie zwrócona tylko gdy cały blok jest wolny (fragmentacja!).
                 \item Dla wielu obiektów (np. tuple) zwalniane obiekty trafiają do puli, do ponownego użycia.
                 \item Pamięć raz zarezerwowana na inty nigdy nie będzie użyta na nic innego.
-                \item To samo dla float'ów.
+                \item To samo dla floatów.
                 \item ...
             \end{itemize}
         \end{itemize}
@@ -265,7 +265,7 @@ class Subtask(object):
         Jest kilka możliwych przyczyn wycieku pamięci:
         \begin{enumerate}
             \item Wyciek pamięci w module napisanym w c/c++.
-            \item Pamięć przeznaczona na int'y, lub float'y nigdy nie będzie zwolniona, lub przeznaczona na cokolwiek innego.
+            \item Pamięć przeznaczona na inty, lub floaty nigdy nie będzie zwolniona, lub przeznaczona na cokolwiek innego.
             \item Trzymanie ''zapomnianych'' referencji do struktur danych.
             \item Garbage collector nie zwolni \textit{żadnego} obiektu będącego częścią cyklu, w którym choć jeden obiekt definiuje finalizer (\textit{\_\_del\_\_}).
         \end{enumerate}
